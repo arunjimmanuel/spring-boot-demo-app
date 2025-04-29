@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jobtracker-spring-service
+spec:
+  revisionHistoryLimit: 0
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jobtracker-spring-service
+  template:
+    metadata:
+      labels:
+        app: jobtracker-spring-service
+    spec:
+      containers:
+        - name: jobtracker-container
+          image: immanuel2305/jobtracker-spring-service:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_DATA_MONGODB_URI
+              value: mongodb://mongo-service:27017/jobtrackerdb
