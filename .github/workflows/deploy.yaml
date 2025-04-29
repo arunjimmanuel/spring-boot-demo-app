@@ -47,6 +47,7 @@ jobs:
     - name: Apply MongoDB Kubernetes Resources
       run: |
         kubectl apply -f k8s/mongo-pvc.yaml
+        kubectl apply -f k8s/mongo-deployment.yaml  
         kubectl apply -f k8s/mongo-service.yaml
 
     - name: Apply App Deployment and Service
