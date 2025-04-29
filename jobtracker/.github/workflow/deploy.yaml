@@ -10,7 +10,7 @@ env:
 
 jobs:
   build-deploy:
-    runs-on: self-hosted
+    runs-on: [self-hosted, springboot]
     env:
       KUBECONFIG: /home/ubuntu/.kube/config
 
