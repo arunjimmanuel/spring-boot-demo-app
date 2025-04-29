@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jobtracker-spring-service
+  name: spring-demo-app
 spec:
   revisionHistoryLimit: 0
   replicas: 1
   selector:
     matchLabels:
-      app: jobtracker-spring-service
+      app: spring-demo-app
   template:
     metadata:
       labels:
-        app: jobtracker-spring-service
+        app: spring-demo-app
     spec:
       containers:
-        - name: jobtracker-container
-          image: immanuel2305/jobtracker-spring-service:latest
+        - name: spring-demo-container
+          image: immanuel2305/spring-demo-app:latest
           ports:
             - containerPort: 8080
           env:

@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: jobtracker-spring-service
+  name: spring-demo-service
 spec:
   selector:
-    app: jobtracker-spring-service
+    app: spring-demo-service
   ports:
     - protocol: TCP
       port: 8080
