@@ -9,7 +9,7 @@ env:
   DOCKER_REPO: ${{ secrets.DOCKER_USERNAME }}/spring-demo-app
 
 jobs:
-  deploy:
+  build-deploy:
     runs-on: self-hosted
     env:
       KUBECONFIG: /home/ubuntu/.kube/config
