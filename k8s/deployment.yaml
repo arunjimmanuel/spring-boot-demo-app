@@ -20,7 +20,7 @@ spec:
             - containerPort: 8080
           env:
             - name: SPRING_DATA_MONGODB_URI
-              value: mongodb://mongo-service:27017/jobtrackerdb
+              value: mongodb://mongo-service.default.svc.cluster.local:27017/jobtrackerdb
           startupProbe:
             httpGet:
               path: /actuator/health
