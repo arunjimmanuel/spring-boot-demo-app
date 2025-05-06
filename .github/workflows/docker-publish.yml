@@ -17,8 +17,12 @@ jobs:
       - name: Log in to Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
+      - name: Get short SHA
+        id: vars
+        run: echo "TAG=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+      
       - name: Build Docker image
-        run: docker build -t immanuel2305/spring-demo-app:latest .
+        run: docker build -t immanuel2305/spring-demo-app:${TAG} .
 
       - name: Push Docker image
-        run: docker push immanuel2305/spring-demo-app:latest
+        run: docker push immanuel2305/spring-demo-app:${TAG}

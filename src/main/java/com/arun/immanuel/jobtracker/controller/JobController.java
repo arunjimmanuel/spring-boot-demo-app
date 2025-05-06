@@ -1,16 +1,23 @@
 package com.arun.immanuel.jobtracker.controller;
 
-import org.springframework.web.bind.annotation.*;
-
 import com.arun.immanuel.jobtracker.entity.Job;
 import com.arun.immanuel.jobtracker.respository.JobRepository;
 
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+
 @RestController
 @RequestMapping("/api/applications")
-@CrossOrigin(origins = "*")
 public class JobController {
 
     private final JobRepository jobRepository;
@@ -19,7 +26,11 @@ public class JobController {
         this.jobRepository = jobRepository;
     }
 
-    @GetMapping
+    @GetMapping("path")
+    public String getMethodName(@RequestParam String param) {
+        return new String();
+    }
+
     public List<Job> getAllJobs() {
         return jobRepository.findAll();
     }
