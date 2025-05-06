@@ -5,6 +5,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.nio.charset.StandardCharsets;
@@ -12,7 +13,8 @@ import java.util.Date;
 
 @Component
 public class JwtUtil {
-    private final String SECRET = "dGVzdFNlY3JldEJhc2U2NEVuY29kZWRTdHJpbmcxMjM=";
+    @Value("${jwt.secret.key}")
+    private String SECRET;
     private final long EXPIRATION_TIME = 10 * 60 * 1000; // 10 minutes
 
     public String generateToken(String email) {
