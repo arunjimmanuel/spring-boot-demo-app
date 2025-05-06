@@ -17,6 +17,7 @@ COPY --from=build /app/target/*.jar app.jar
 
 # Set environment variable for Spring Profile
 ENV SPRING_PROFILES_ACTIVE=prod
+ENV JWT_SECRET_KEY=${JWT_SECRET_KEY}
 
 EXPOSE 8080
 
