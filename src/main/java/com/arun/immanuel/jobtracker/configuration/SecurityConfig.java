@@ -3,6 +3,7 @@ package com.arun.immanuel.jobtracker.configuration;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -25,10 +26,12 @@ public class SecurityConfig {
 
         @Autowired
         private CustomAuthEntryPoint authEntryPoint;
+        @Value("${PBK_SECRET_KEY}")
+        private String PBKDF2_SECRET;
 
         @Bean
         public PasswordEncoder passwordEncoder() {
-                return new Pbkdf2PasswordEncoder("Jx^29@Q1bG!mZ0%HnL#8s*A$5xRp#vBw", 16, 185000,
+                return new Pbkdf2PasswordEncoder(PBKDF2_SECRET, 16, 185000,
                                 SecretKeyFactoryAlgorithm.PBKDF2WithHmacSHA256);
         }
 
@@ -44,6 +47,8 @@ public class SecurityConfig {
                                                 .configurationSource(request -> {
                                                         CorsConfiguration config = new CorsConfiguration();
                                                         config.setAllowedOrigins(List.of("http://localhost:4200",
+                                                                        "http://localhost",
+                                                                        "http://localhost:8080",
                                                                         "http://arunimmanuel.duckdns.org"));
                                                         config.setAllowedMethods(List.of(HttpMethod.GET.name(),
                                                                         HttpMethod.POST.name(), HttpMethod.PUT.name(),

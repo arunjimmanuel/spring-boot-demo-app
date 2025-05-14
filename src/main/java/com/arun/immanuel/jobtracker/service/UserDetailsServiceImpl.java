@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.arun.immanuel.jobtracker.respository.UserRepository;
+import com.arun.immanuel.jobtracker.respository.mongo.UserRepository;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {

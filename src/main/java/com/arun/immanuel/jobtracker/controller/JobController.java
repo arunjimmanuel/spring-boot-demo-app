@@ -1,7 +1,7 @@
 package com.arun.immanuel.jobtracker.controller;
 
 import com.arun.immanuel.jobtracker.entity.Job;
-import com.arun.immanuel.jobtracker.respository.JobRepository;
+import com.arun.immanuel.jobtracker.respository.mongo.JobMongoRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/api/applications")
 public class JobController {
 
-    private final JobRepository jobRepository;
+    private final JobMongoRepository jobRepository;
 
-    public JobController(JobRepository jobRepository) {
+    public JobController(JobMongoRepository jobRepository) {
         this.jobRepository = jobRepository;
     }
 

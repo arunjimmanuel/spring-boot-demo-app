@@ -1,4 +1,4 @@
-package com.arun.immanuel.jobtracker.respository;
+package com.arun.immanuel.jobtracker.respository.mongo;
 
 import java.util.Optional;
 

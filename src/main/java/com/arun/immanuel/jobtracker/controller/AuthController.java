@@ -12,7 +12,7 @@ import com.arun.immanuel.jobtracker.configuration.JwtUtil;
 import com.arun.immanuel.jobtracker.entity.User;
 import com.arun.immanuel.jobtracker.exception.InvalidCredentialsException;
 import com.arun.immanuel.jobtracker.exception.UserAlreadyExistsException;
-import com.arun.immanuel.jobtracker.respository.UserRepository;
+import com.arun.immanuel.jobtracker.respository.mongo.UserRepository;
 
 import java.util.HashMap;
 import java.util.Map;
