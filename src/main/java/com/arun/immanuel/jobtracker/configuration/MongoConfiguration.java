@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+
+import com.arun.immanuel.jobtracker.utils.AppConstants;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 
@@ -22,6 +24,6 @@ public class MongoConfiguration {
 
     @Bean
     public MongoTemplate mongoTemplate() {
-        return new MongoTemplate(mongoClient(), "jobtrackerdb");
+        return new MongoTemplate(mongoClient(), AppConstants.Mongo.DB_NAME);
     }
 }

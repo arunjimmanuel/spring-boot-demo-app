@@ -4,12 +4,13 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
+
+import com.arun.immanuel.jobtracker.utils.AppConstants;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
@@ -21,7 +22,7 @@ import javax.crypto.SecretKey;
 public class JwtUtil {
     @Value("${JWT_SECRET_KEY}")
     private String SECRET;
-    private final long EXPIRATION_TIME = 10 * 60 * 1000; // 10 minutes
+    private final long EXPIRATION_TIME = AppConstants.JWT_EXPIRATION_TIME;
 
     public String generateToken(String email) {
         return Jwts.builder()

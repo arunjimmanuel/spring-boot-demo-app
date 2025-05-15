@@ -1,7 +1,7 @@
 package com.arun.immanuel.jobtracker.configuration;
 
 import org.apache.solr.client.solrj.SolrClient;
-import org.apache.solr.client.solrj.impl.HttpSolrClient;
+import org.apache.solr.client.solrj.impl.Http2SolrClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,6 +14,6 @@ public class SolrConfiguration {
 
     @Bean
     public SolrClient solrClient() {
-        return new HttpSolrClient.Builder(solrHost).build();
+        return new Http2SolrClient.Builder(solrHost).build();
     }
 }

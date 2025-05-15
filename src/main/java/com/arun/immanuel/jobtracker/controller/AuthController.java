@@ -13,6 +13,7 @@ import com.arun.immanuel.jobtracker.entity.User;
 import com.arun.immanuel.jobtracker.exception.InvalidCredentialsException;
 import com.arun.immanuel.jobtracker.exception.UserAlreadyExistsException;
 import com.arun.immanuel.jobtracker.respository.mongo.UserRepository;
+import com.arun.immanuel.jobtracker.utils.AppConstants;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -56,7 +57,7 @@ public class AuthController {
                     new UsernamePasswordAuthenticationToken(body.get("email"), body.get("password")));
             String token = jwtUtil.generateToken(body.get("email"));
             Map<String, String> response = new HashMap<>();
-            response.put("token", token);
+            response.put(AppConstants.ResponseKey.TOKEN, token);
             return ResponseEntity.ok(response);
         } catch (AuthenticationException e) {
             throw new InvalidCredentialsException("Invalid credentials");

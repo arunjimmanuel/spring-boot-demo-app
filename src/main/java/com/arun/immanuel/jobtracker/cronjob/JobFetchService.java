@@ -28,8 +28,7 @@ public class JobFetchService {
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     // Runs every 2 hours AFTER previous completion
-    // @Scheduled(fixedDelay = 2 * 60 * 60 * 1000) // every 2 hours
-    @Scheduled(fixedDelay = 10 * 60 * 1000) // every 10 mins after previous execution ends
+    @Scheduled(fixedDelay = 2 * 60 * 60 * 1000) // every 2 hours
     public void fetchAndInsertJobsToSolr() {
 
         log.info("Starting scheduled job fetch at {}", LocalDateTime.now().format(FORMATTER));

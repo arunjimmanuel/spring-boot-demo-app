@@ -11,7 +11,7 @@ This is the **backend service** for a full-featured **Job Tracking Portal**, bui
 
 This is a scalable, container-ready, cloud-deployable **RESTful API service**, part of a full-stack project with Angular frontend and Kubernetes deployment support.
 
-> 🧩 **Note:** This backend service is a small but essential part of a larger **cloud-native solution** built using **Spring Boot Microservices**, **Docker**, and **Kubernetes** for real-world scalability.
+> 🧩 **Note:** This backend service is a small but essential part of a larger **cloud-native solution** built using **Spring Boot MVC**, **Docker**, and **Kubernetes** for real-world scalability.
 
 ## 🚀 Tech Stack & Features
 

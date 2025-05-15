@@ -1,10 +1,12 @@
 package com.arun.immanuel.jobtracker.configuration;
 
+import com.arun.immanuel.jobtracker.utils.AppConstants;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 
+import org.springframework.http.MediaType;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.InsufficientAuthenticationException;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;
@@ -43,14 +45,14 @@ public class CustomAuthEntryPoint implements AuthenticationEntryPoint {
 
         if (!response.isCommitted()) {
             response.setStatus(status);
-            response.setContentType("application/json");
+            response.setContentType(MediaType.APPLICATION_JSON_VALUE);
 
             Map<String, Object> responseBody = new HashMap<>();
-            responseBody.put("timestamp", System.currentTimeMillis());
-            responseBody.put("status", status);
-            responseBody.put("error", error);
-            responseBody.put("message", message);
-            responseBody.put("path", request.getRequestURI());
+            responseBody.put(AppConstants.ResponseKey.TIMESTAMP, System.currentTimeMillis());
+            responseBody.put(AppConstants.ResponseKey.STATUS, status);
+            responseBody.put(AppConstants.ResponseKey.ERROR, error);
+            responseBody.put(AppConstants.ResponseKey.MESSAGE, message);
+            responseBody.put(AppConstants.ResponseKey.PATH, request.getRequestURI());
 
             ObjectMapper mapper = new ObjectMapper();
             mapper.writeValue(response.getOutputStream(), responseBody);

@@ -1,6 +1,8 @@
 package com.arun.immanuel.jobtracker.respository.solr;
 
 import com.arun.immanuel.jobtracker.solr.model.JobDocument;
+import com.arun.immanuel.jobtracker.utils.AppConstants;
+
 import lombok.RequiredArgsConstructor;
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrQuery;
@@ -12,7 +14,6 @@ import org.apache.solr.common.SolrInputDocument;
 import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.util.List;
 
 @Repository
@@ -20,7 +21,7 @@ import java.util.List;
 public class JobSolrRepository {
 
     private final SolrClient solrClient;
-    private final String collection = "jobcore";
+    private final String collection = AppConstants.Solr.JOB_CORE;
 
     public void save(JobDocument job) throws Exception {
         SolrInputDocument doc = new DocumentObjectBinder().toSolrInputDocument(job);

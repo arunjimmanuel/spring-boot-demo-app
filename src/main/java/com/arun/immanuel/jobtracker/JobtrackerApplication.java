@@ -4,7 +4,6 @@ import java.util.Properties;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.PropertiesPropertySource;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -17,7 +16,7 @@ public class JobtrackerApplication {
 
 	public static void main(String[] args) {
 		Dotenv dotenv = Dotenv.configure().filename(".env")
-				.directory("/home/arun/Arun/SpringBoot/Jobtracker/jobtracker")
+				.directory(".")
 				.ignoreIfMalformed()
 				.ignoreIfMissing()
 				.load();
@@ -32,7 +31,7 @@ public class JobtrackerApplication {
 					.addFirst(new PropertiesPropertySource("dotenvProperties", dotenvProperties));
 		});
 
-		ConfigurableApplicationContext context = application.run(args);
+		application.run(args);
 	}
 
 }

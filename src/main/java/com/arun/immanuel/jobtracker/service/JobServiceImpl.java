@@ -1,6 +1,5 @@
 package com.arun.immanuel.jobtracker.service;
 
-import java.time.Duration;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
